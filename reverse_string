@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+string rev(string str)
+{
+    if(str.length()==0)
+    {
+        return " ";
+    }
+    return rev(str.substr(1))+str[0];
+}
+int main()
+{
+    string str;
+    getline(cin,str);
+   cout<< rev(str);
+    return 0;
+}
