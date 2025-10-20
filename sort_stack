@@ -1,0 +1,49 @@
+** This is the one of the method of sorting the stack using recursion without any loop and space complexity will be O(1) AND Time complexity will be O(N^2)
+
+** Here main idea is to pick the element of stack means top element from stack untill there is only one elemnt left then from there stact compare weather the top element is greater than the current element at stack
+if it is push to stack then if next element come do the same again and if in any case the given statement fails then pop the top elemenet and then again by comparing put the elemen in that:
+
+#include<iostream>
+#include<algorithm>
+#include<vector>
+#include<stack>
+using namespace std;
+void insert(stack<int>&st, int x)
+{
+    if(st.empty() || st.top()>=x)
+    {
+        st.push(x);
+        return ;
+    }
+    int temp=st.top();
+    st.pop();
+    insert(st,x);
+    st.push(temp);
+}
+void sort_stack(stack<int>&st)
+{
+    if(st.empty())
+    {
+        return ;
+    }
+    int top_ele=st.top();
+    st.pop();
+    sort_stack(st);
+    insert(st,top_ele);
+}
+void display(stack<int>st)
+{
+    while(!st.empty())
+    {
+        cout<<st.top()<<" ";
+        st.pop();
+    }
+}
+int main()
+{
+    return 0;
+}
+
+
+
+/// Second method is of array you know it well
