@@ -1,0 +1,6 @@
+**Here when we are sorting the stack in that case when we want the stack in ascending order then the largest element will be at the top and smallest element will be at bottom:
+
+** here when we are sorting the stack in descending order then largest element will be at bottom and smallest element will be at top:
+
+** there are two methods one will be push all element of stack into array ten sort that array in descending order and after that push all element again in stack:
+but the time complexity will be O(N)+ O(NLOGN)+O(N) means extra space will be o(n) so we have to reduce this so by the helop of recursion we will solve it in o(n*n) and space compleity O(1).
