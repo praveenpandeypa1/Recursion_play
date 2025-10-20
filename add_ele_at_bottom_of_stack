@@ -1,0 +1,42 @@
+** This is the one of method of inserting element at the bottom of the stack and the method i am writing is very great and good:
+#include <iostream>
+#include <stack>
+using namespace std;
+
+void insertAtBottom(stack<int>& st, int value) {
+    if (st.empty()) {
+        st.push(value);
+        return;
+    }
+
+    int top = st.top();
+    st.pop();
+
+    // Recursive call
+    insertAtBottom(st, value);
+
+    // Push the original top back
+    st.push(top);
+}
+
+int main() {
+    stack<int> st;
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+    st.push(5);
+
+    int value;
+    cout << "Enter the value to insert at bottom of the stack: ";
+    cin >> value;
+
+    insertAtBottom(st, value);
+
+    cout << "Stack after insertion: ";
+    while (!st.empty()) {
+        cout << st.top() << " ";
+        st.pop();
+    }
+}
+here i am using only recursive approch:
