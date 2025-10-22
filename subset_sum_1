@@ -1,0 +1,38 @@
+** This is the code totally created ny me and here i have first created all the subset and then added that all subset together and then sorted them completly and pushed them back into the array and printed the result:
+
+// This is the code what i am in need:
+
+class Solution {
+  public:
+  void gen(int index, vector<int>&nums, vector<int>&current, vector<vector<int>>&res)
+  {
+    if(index==nums.size())
+    {
+      res.push_back(current);
+      return ;
+    }
+    current.push_back(nums[index]);
+    gen(index+1,nums,current,res);
+    current.pop_back();
+    gen(index+1,nums,current,res);
+  }
+    vector<int> subsetSums(vector<int>& nums) {
+      vector<vector<int>>res;
+      vector<int>current;
+      vector<int>ans;
+      gen(0,nums,current,res);
+      for(auto &subset:res)
+      {
+        int sum=0;
+        for(int num:subset)
+        {
+          sum+=num;
+        }
+        ans.push_back(sum);
+      }
+      sort(ans.begin(),ans.end());
+      return ans;
+    }
+};
+
+this is the complete code
