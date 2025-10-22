@@ -1,0 +1,29 @@
+** here in this problem whatever the subset is being created here just put it in that 2d array and later while pushing element skip the duplicates and rest you know vey well. this question is completly solved by me:
+
+class Solution {
+public:
+void gen(int index, vector<int>&nums, vector<int>&current, vector<vector<int>>&res)
+{
+    res.push_back(current);
+
+for(int i=index;i<nums.size();i++)
+{
+    if(i>index &&nums[i]==nums[i-1])
+    {
+        continue;
+    }
+    current.push_back(nums[i]);
+    gen(i+1,nums,current,res);
+    current.pop_back();
+}
+}
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+      vector<int>current;
+      vector<vector<int>>res;
+      gen(0,nums,current,res);
+      return res;  
+    }
+};
+
+thi is the leetcode solution in 0MS time complexity
