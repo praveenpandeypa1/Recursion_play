@@ -1,0 +1,23 @@
+here this one approch is optimized approch than the previous one:
+
+class Solution {
+public:
+    void gen(int index, vector<int>& nums, int sum, vector<int>& ans) {
+        if(index == nums.size()) {
+            ans.push_back(sum);
+            return;
+        }
+        // Include nums[index]
+        gen(index + 1, nums, sum + nums[index], ans);
+        // Exclude nums[index]
+        gen(index + 1, nums, sum, ans);
+    }
+
+    vector<int> subsetSums(vector<int>& nums) {
+        vector<int> ans;
+        gen(0, nums, 0, ans);
+        sort(ans.begin(), ans.end());
+        return ans;
+    }
+};
+here we do need to store all the subset and then store it and then print it all these things we can do it all seprate:
