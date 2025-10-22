@@ -1,0 +1,37 @@
+here i am writing the sombination sum2 problem in which i have to take the unique element so for this i have to traverse the while arr using for loop and check if we have taken that array element then 
+we have to skip that one this is what we will do here:
+
+** The solution is here:
+class Solution {
+public:
+void combine(int index,vector<int>&nums, vector<vector<int>>res,int target,vector<int>&current)
+{
+    if(target==0)
+    {
+        res.push_back(current);
+        return ;
+    }
+    if(target<0||index==nums.size())
+    {
+        return ;
+    }
+    for(int i=index;i<arr.size();i++)
+    {
+        if(i>index && arr[i]==arr[i-1])
+        {
+            continue;
+        }
+        current.push_back(arr[i]);
+        combine(i+1,nums,res,target,current);
+        current.pop_back();
+    }
+}
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        vector<int>current;
+        vector<vector<int>>res;
+        combine(0,candidates,res,target,current);
+        return res;
+    }
+};
+
+// This is leetcode solution i submitted:
