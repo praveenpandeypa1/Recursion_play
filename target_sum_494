@@ -1,0 +1,23 @@
+here in this section we are putting + and - sign in front of tha array element to get desired sum and if sum ==target then we will leave it as it is:
+
+** the code are as follow:
+
+class Solution {
+public:
+      int count_ways(vector<int>&nums, int index, int current_sum, int target)
+      {
+        if(index==nums.size())
+        {
+            return (current_sum==target) ? 1:0;
+
+        }
+        int add=count_ways(nums, index+1, current_sum+nums[index],target);
+        int sub=count_ways(nums, index+1, current_sum-nums[index],target);
+        return add+sub;
+      }
+    int findTargetSumWays(vector<int>& nums, int target) {
+       return count_ways(nums,0,0,target); 
+    }
+};
+
+// this is the code i generated using recursion
